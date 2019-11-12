@@ -4,7 +4,7 @@ services: docker
 
 env:
   global:
-    - ROLE_NAME:
+    - ROLE_NAME: elasticsearch
   matrix:
     - MOLECULE_DISTRIB: debian10:v1
     - MOLECULE_DISTRIB: debian9:v1

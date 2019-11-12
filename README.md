@@ -1,4 +1,7 @@
-# ansible-role-template
+# Absible Elasticsearch
+Install and configure Elasticsearch with java.
+
+## Requirements
 
 
 ## Tested plateform
