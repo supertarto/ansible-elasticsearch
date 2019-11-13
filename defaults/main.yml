@@ -27,8 +27,8 @@ elasticsearch_api_port: 9200
 
 elasticsearch_snapshot_name: backup_es
 
-elasticsearch_heap_size_xms: ""
-elasticsearch_heap_size_xmx: ""
+elasticsearch_heap_size_xms: "1g"
+elasticsearch_heap_size_xmx: "1g"
 
 elasticsearch_max_open_files: 65536
 elasticsearch_max_map_count: 262144
