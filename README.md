@@ -71,8 +71,8 @@ elasticsearch_max_threads: 8192
 ```
 Variables used in **elastisearch.yml**. By default, the cluster name is **elasticsearch** and the node name is **default_node**. Chane thoses to your liking.
 ```yml
-elasticsearch_config_cluster_name: ""
-elasticsearch_config_node_name: ""
+elasticsearch_config_cluster_name: "elasticsearch"
+elasticsearch_config_node_name: "default_node"
 elasticsearch_discovery_seed_hosts: '["127.0.0.1"]'
 elasticsearch_cluster_initial_master_nodes: '["master_node"]'
 ```

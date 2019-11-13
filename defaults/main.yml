@@ -35,7 +35,7 @@ elasticsearch_max_map_count: 262144
 elasticsearch_max_threads: 8192
 
 # yml conf file
-elasticsearch_config_cluster_name: ""
-elasticsearch_config_node_name: ""
+elasticsearch_config_cluster_name: "elasticsearch"
+elasticsearch_config_node_name: "default-node"
 elasticsearch_discovery_seed_hosts: '["127.0.0.1"]'
 elasticsearch_cluster_initial_master_nodes: '["master_node"]'
