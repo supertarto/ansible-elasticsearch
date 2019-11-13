@@ -1,0 +1,3 @@
+#!/bin/bash
+SNAPSHOT=`date +%Y%m%d-%H%M%S`
+curl -XPUT "{{ elasticsearch_api_host }}:{{ elasticsearch_api_port }}/_snapshot/{{ elasticsearch_snapshot_name }}/$SNAPSHOT?wait_for_completion=true"

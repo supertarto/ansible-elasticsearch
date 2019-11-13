@@ -1,2 +1,109 @@
 ---
+- set_fact: "elasticsearch_major_version={{ elasticsearch_version.split('.')[0] }}.x"
+  when: elasticsearch_major_version is undefined
 
+- include_tasks: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Create Configuration Directory
+  file:
+    path: "{{ elasticsearch_conf_dir }}"
+    state: directory
+    owner: root
+    group: "{{ elasticsearch_group }}"
+    mode: 2750
+
+- name: Create PID Directory
+  file:
+    path: "{{ elasticsearch_pid_dir }}"
+    state: directory
+    owner: "{{ elasticsearch_user }}"
+    group: "{{ elasticsearch_group }}"
+    mode: 0755
+
+- name: Create Data and logs directories
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ elasticsearch_user }}"
+    group: "{{ elasticsearch_group }}"
+    mode: 2750
+  with_items:
+    - "{{ elasticsearch_log_dir }}"
+    - "{{ elasticsearch_data_dirs }}"
+
+- name: Create snapshot directories
+  file:
+    path: "{{ elasticsearch_snapshot_path }}"
+    state: directory
+    owner: "{{ elasticsearch_user }}"
+    group: "{{ elasticsearch_group }}"
+    mode: 2750
+  when: elasticsearch_snapshot_path is defined
+
+- name: Copy Configuration File
+  template:
+    src: elasticsearch.yml.j2
+    dest: "{{ elasticsearch_conf_dir }}/elasticsearch.yml"
+    owner: root
+    group: "{{ elasticsearch_group }}"
+    mode: 0660
+    force: yes
+  notify: Restart elasticsearch
+
+- name: Copy Default File
+  template:
+    src: elasticsearch.j2
+    dest: "{{ elasticsearch_default_file }}"
+    owner: root
+    group: "{{ elasticsearch_group }}"
+    mode: 0660
+    force: yes
+  notify: Restart elasticsearch
+
+- name: Copy log4j2.properties File
+  template:
+    src: "log4j2.properties.j2"
+    dest: "{{ elasticsearch_conf_dir }}/log4j2.properties"
+    owner: root
+    group: "{{ elasticsearch_group }}"
+    mode: 0660
+    force: yes
+  notify: Restart elasticsearch
+
+- name: Copy jvm.options File
+  template:
+    src: jvm.options.j2
+    dest: "{{ elasticsearch_conf_dir }}/jvm.options"
+    owner: root
+    group: "{{ elasticsearch_group }}"
+    mode: 0660
+    force: yes
+  notify: Restart elasticsearch
+
+- name: Cron for Elasticsearch snapshots
+  template:
+    src: elasticsnap.j2
+    dest: "/etc/cron.daily/elasticsnap"
+    owner: root
+    group: "{{ elasticsearch_group }}"
+    mode: 0750
+  when: elasticsearch_snapshot_path is defined and elasticsearch_snapshot_name is defined
+
+- name: flush handlers
+  meta: flush_handlers
+
+- name: Make sure elasticsearch is started
+  service:
+    name: elasticsearch
+    state: started
+    enabled: yes
+  when: elasticsearch_start_service  
+
+- name: Wait for elasticsearch to startup
+  wait_for:
+    host: "{{ elasticsearch_api_host }}"
+    port: "{{ elasticsearch_api_port }}"
+    delay: 5
+    connect_timeout: 1
+  when: elasticsearch_start_service and elasticsearch_restarted is defined and elasticsearch_restarted.changed

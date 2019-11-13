@@ -20,4 +20,5 @@ galaxy_info:
     - "monitoring"
     - "elk"
 
-dependencies: []
+dependencies:
+  - supertarto.openjdk
