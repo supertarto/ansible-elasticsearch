@@ -48,7 +48,7 @@
     owner: root
     group: "{{ elasticsearch_group }}"
     mode: 0660
-    force: yes
+    force: true
   notify: Restart elasticsearch
 
 - name: Copy Default File
@@ -58,7 +58,7 @@
     owner: root
     group: "{{ elasticsearch_group }}"
     mode: 0660
-    force: yes
+    force: true
   notify: Restart elasticsearch
 
 - name: Copy log4j2.properties File
@@ -68,7 +68,7 @@
     owner: root
     group: "{{ elasticsearch_group }}"
     mode: 0660
-    force: yes
+    force: true
   notify: Restart elasticsearch
 
 - name: Copy jvm.options File
@@ -78,7 +78,7 @@
     owner: root
     group: "{{ elasticsearch_group }}"
     mode: 0660
-    force: yes
+    force: true
   notify: Restart elasticsearch
 
 - name: Cron for Elasticsearch snapshots
@@ -97,8 +97,8 @@
   service:
     name: elasticsearch
     state: started
-    enabled: yes
-  when: elasticsearch_start_service  
+    enabled: true
+  when: elasticsearch_start_service
 
 - name: Wait for elasticsearch to startup
   wait_for:

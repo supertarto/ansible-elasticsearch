@@ -3,7 +3,7 @@
   service:
     name: elasticsearch
     state: restarted
-    enabled: yes
+    enabled: true
   when:
     - elasticsearch_start_service
   register: elasticsearch_restarted

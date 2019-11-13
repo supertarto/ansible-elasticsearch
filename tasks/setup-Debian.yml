@@ -19,9 +19,9 @@
 - name: Get installed elasticsearch version (Debian)
   command: dpkg-query --showformat='${Version}' --show {{ elasticsearch_package_name }}
   register: installed_elasticsearch_version
-  failed_when: False
-  changed_when: False
-  check_mode: no
+  failed_when: false
+  changed_when: false
+  check_mode: false
 
 - name: Ensure elasticsearch is installed (Debian)
   apt:
