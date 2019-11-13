@@ -62,16 +62,6 @@
     force: true
   notify: Restart elasticsearch
 
-- name: Copy log4j2.properties File
-  template:
-    src: "log4j2.properties.j2"
-    dest: "{{ elasticsearch_conf_dir }}/log4j2.properties"
-    owner: root
-    group: "{{ elasticsearch_group }}"
-    mode: "0660"
-    force: true
-  notify: Restart elasticsearch
-
 - name: Copy jvm.options File
   template:
     src: jvm.options.j2
