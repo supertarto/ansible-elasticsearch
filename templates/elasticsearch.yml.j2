@@ -42,7 +42,7 @@ node.name: default_node
 # Path to log files:
 #
 # path.logs: /path/to/logs
-path.data: {{ elasticsearch_data_dirs | array_to_str }}
+path.data: {{ elasticsearch_data_dirs }}
 path.logs: {{ elasticsearch_log_dir }}
 {% if elasticsearch_snapshot_path is defined %}
 path.repo: {{ elasticsearch_snapshot_path }}
