@@ -100,11 +100,7 @@
     state: started
     enabled: true
   when: elasticsearch_start_service
+  register: elasticsearch_started
+  notify: Wait for elasticsearch to startup
 
-- name: Wait for elasticsearch to startup
-  wait_for:
-    host: "{{ elasticsearch_api_host }}"
-    port: "{{ elasticsearch_api_port }}"
-    delay: 5
-    connect_timeout: 1
-  when: elasticsearch_start_service and elasticsearch_restarted is defined and elasticsearch_restarted.changed
+

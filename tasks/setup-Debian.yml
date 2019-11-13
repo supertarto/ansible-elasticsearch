@@ -25,7 +25,7 @@
 
 - name: Ensure elasticsearch is installed (Debian)
   apt:
-    name: '{{ elasticsearch_package_name }}{% if elasticsearch_version is defined and elasticsearch_version != "" %}={{ elasticsearch_version }}{% endif %}'
+    name: '{{ elasticsearch_package_name }}{% if elasticsearch_version is defined %}={{ elasticsearch_version }}{% endif %}'
     state: present
     allow_unauthenticated: "{{ 'no' if elasticsearch_apt_key else 'yes' }}"
     cache_valid_time: 86400
