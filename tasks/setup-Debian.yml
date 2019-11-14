@@ -24,7 +24,6 @@
     cache_valid_time: 86400
   register: elasticsearch_debian_install_from_repo
   notify:
-    - Reload systemd configuration
     - Restart elasticsearch
   environment:
     ES_PATH_CONF: "{{ elasticsearch_conf_dir }}"
