@@ -16,13 +16,6 @@
     repo: '{{ elasticsearch_apt_url }}'
     state: present
 
-- name: Get installed elasticsearch version (Debian)
-  command: dpkg-query --showformat='${Version}' --show {{ elasticsearch_package_name }}
-  register: installed_elasticsearch_version
-  failed_when: false
-  changed_when: false
-  check_mode: false
-
 - name: Ensure elasticsearch is installed (Debian)
   apt:
     name: '{{ elasticsearch_package_name }}{% if elasticsearch_version is defined %}={{ elasticsearch_version }}{% endif %}'

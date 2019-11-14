@@ -81,7 +81,15 @@
     mode: "0750"
   when: elasticsearch_snapshot_path is defined and elasticsearch_snapshot_name is defined
 
-- name: flush handlers
+  name: Set fact use_system_d
+  set_fact: use_system_d={{(ansible_distribution == 'Debian' and ansible_distribution_version is version_compare('8', '>='))}}
+
+- name: Reload systemd configuration
+  systemd:
+    daemon_reload: true
+  when: elasticsearch_start_service and elasticsearch_debian_install_from_repo.changed
+
+- name: Flush handlers
   meta: flush_handlers
 
 - name: Make sure elasticsearch is started

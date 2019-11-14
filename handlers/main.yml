@@ -14,4 +14,4 @@
     port: "{{ elasticsearch_api_port }}"
     delay: 5
     connect_timeout: 1
-  when: elasticsearch_start_service and elasticsearch_restarted is defined and (elasticsearch_restarted.changed or elasticsearch_started)
+  when: elasticsearch_start_service and elasticsearch_restarted is defined and (elasticsearch_restarted.changed or elasticsearch_started.changed)
