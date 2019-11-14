@@ -3,7 +3,7 @@
   systemd:
     daemon_reload: true
   when: elasticsearch_start_service and elasticsearch_debian_install_from_repo.changed
-  
+
 - name: Restart elasticsearch
   service:
     name: elasticsearch
