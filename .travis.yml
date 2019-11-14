@@ -6,8 +6,8 @@ env:
   global:
     - ROLE_NAME: elasticsearch
   matrix:
-    - MOLECULE_DISTRIB: debian10:v1
-    - MOLECULE_DISTRIB: debian9:v1
+    - MOLECULE_DISTRO: debian10
+    - MOLECULE_DISTRO: debian9
 
 install:
   - pip install molecule docker

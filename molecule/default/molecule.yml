@@ -9,7 +9,7 @@ lint:
     config-file: molecule/default/yaml-lint.yml
 platforms:
   - name: instance
-    image: "thetarto/ansible-${MOLECULE_DISTRIB}"
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-centos7}-ansible:latest"
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
