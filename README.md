@@ -5,7 +5,7 @@ https://github.com/elastic/ansible-elasticsearch
 
 
 ## Requirements
-You need a recent version of Java. You can use my supertarto.openjdk role. By default, supertarto.openjdk will be called. To change this behaviour, you can change the dependancies in meta/main.yml
+You need a recent version of Java. You can use my supertarto.openjdk role.
 
 ## Tested plateform
 * Debian 9 (Stretch)
