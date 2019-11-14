@@ -81,7 +81,7 @@
     mode: "0750"
   when: elasticsearch_snapshot_path is defined and elasticsearch_snapshot_name is defined
 
-  name: Set fact use_system_d
+- name: Set fact use_system_d
   set_fact: use_system_d={{(ansible_distribution == 'Debian' and ansible_distribution_version is version_compare('8', '>='))}}
 
 - name: Reload systemd configuration
