@@ -84,7 +84,7 @@
 - name: Copy elasticsearch.service (Debian 10)
   template:
     src: elasticsearch.service.j2
-    dest: "/usr/lib/systemd/system/elasticsearch.service"
+    dest: "/lib/systemd/system/elasticsearch.service"
     owner: root
     group: root
     mode: "0640"
