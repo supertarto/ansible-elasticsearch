@@ -8,18 +8,18 @@ After=network-online.target
 Type=notify
 RuntimeDirectory=elasticsearch
 PrivateTmp=true
-Environment=ES_HOME=/usr/share/elasticsearch
-Environment=ES_PATH_CONF=/etc/elasticsearch
-Environment=PID_DIR=/var/run/elasticsearch
+Environment=ES_HOME={{ elasticsearch_home }}
+Environment=ES_PATH_CONF={{ elasticsearch_conf_dir }}
+Environment=PID_DIR={{ elasticsearch_pid_dir }}
 Environment=ES_SD_NOTIFY=true
-EnvironmentFile=-/etc/default/elasticsearch
+EnvironmentFile=-{{ elasticsearch_default_file }}
 
-WorkingDirectory=/usr/share/elasticsearch
+WorkingDirectory={{ elasticsearch_home }}
 
-User=elasticsearch
-Group=elasticsearch
+User={{ elasticsearch_user }}
+Group={{ elasticsearch_group }}
 
-ExecStart=/usr/share/elasticsearch/bin/elasticsearch -p ${PID_DIR}/elasticsearch.pid --quiet
+ExecStart={{ elasticsearch_home }}/bin/elasticsearch -p {{ elasticsearch_pid_dir }}/elasticsearch.pid --quiet
 
 # StandardOutput is configured to redirect to journalctl since
 # some error messages may be logged in standard output before
