@@ -1,7 +1,7 @@
 ---
 
 - name: Install pre-requisite (Debian)
-  apt:
+  package:
     name: [ca-certificates, apt-transport-https, curl]
     state: present
 

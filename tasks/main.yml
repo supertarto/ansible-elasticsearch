@@ -81,15 +81,6 @@
     mode: "0750"
   when: elasticsearch_snapshot_path is defined and elasticsearch_snapshot_name is defined
 
-- name: Copy elasticsearch.service (Debian 10)
-  template:
-    src: elasticsearch.service.j2
-    dest: "/lib/systemd/system/elasticsearch.service"
-    owner: root
-    group: root
-    mode: "0640"
-  when: ansible_distribution == 'Debian' and ansible_distribution_major_version == '10'
-
 - name: Flush handlers
   meta: flush_handlers
 
