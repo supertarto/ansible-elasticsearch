@@ -10,7 +10,6 @@ https://github.com/elastic/ansible-elasticsearch
 You need a recent version of Java. You can use my supertarto.openjdk role.
 
 ## Tested plateform
-* Debian 9 (Stretch)
 * Debian 10 (Buster)
 
 ## Role variables
