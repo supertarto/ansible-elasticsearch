@@ -1,5 +1,5 @@
 ---
-elasticsearch_version: "7.4.1"
+elasticsearch_version: "7.9.0"
 elasticsearch_repo_base: "https://artifacts.elastic.co"
 elasticsearch_apt_key: "{{ elasticsearch_repo_base }}/GPG-KEY-elasticsearch"
 elasticsearch_apt_key_id: "46095ACC8548582C1A2699A9D27D666CD88E42B4"
