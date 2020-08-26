@@ -15,7 +15,7 @@ You need a recent version of Java. Elasticsearch is now bundled with JVM, but yo
 ## Role variables
 The elasticsearch package version
 ```yml
-elasticsearch_version: "7.4.1"
+elasticsearch_version: "7.9.0"
 ```
 For now, it's only possible to install elasticsearch on Debian based distribution. It's also only possible ton install it via repository.
 The **elasticsearch_major_version** value is automatically set in a task, and is based on **elasticsearch_version**

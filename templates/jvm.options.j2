@@ -43,8 +43,6 @@
 {% if ansible_distribution == "Debian" and  ansible_distribution_major_version == "9" %}
 -XX:+UseConcMarkSweepGC
 {% endif %}
--XX:CMSInitiatingOccupancyFraction=75
--XX:+UseCMSInitiatingOccupancyOnly
 
 ## optimizations
 
