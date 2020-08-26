@@ -12,5 +12,4 @@
       changed_when: false
 
   roles:
-    - role: supertarto.openjdk
     - role: supertarto.elasticsearch

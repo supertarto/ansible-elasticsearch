@@ -7,7 +7,7 @@ https://github.com/elastic/ansible-elasticsearch
 
 
 ## Requirements
-You need a recent version of Java. You can use my supertarto.openjdk role.
+You need a recent version of Java. Elasticsearch is now bundled with JVM, but you can use your own. Consult the official elasticsearch documentation if you don't want to use the bundled JVM.
 
 ## Tested plateform
 * Debian 10 (Buster)
