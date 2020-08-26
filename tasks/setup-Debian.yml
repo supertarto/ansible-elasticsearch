@@ -15,6 +15,7 @@
   apt_repository:
     repo: '{{ elasticsearch_apt_url }}'
     state: present
+    mode: "0644"
 
 - name: Ensure elasticsearch is installed (Debian)
   apt:
