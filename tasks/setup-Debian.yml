@@ -2,7 +2,7 @@
 
 - name: Install pre-requisite (Debian)
   package:
-    name: [ca-certificates, apt-transport-https, curl]
+    name: [ca-certificates, apt-transport-https, curl, gpg]
     state: present
 
 - name: Add Elasticsearch repository key (Debian)
