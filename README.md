@@ -5,6 +5,7 @@ Install and configure Elasticsearch with java.
 This role is meant for my small need. It's inspired in part by the official role. If you need a more complete one, you can find it here:
 https://github.com/elastic/ansible-elasticsearch
 
+Tested with v7.9.0
 
 ## Requirements
 You need a recent version of Java. Elasticsearch is now bundled with JVM, but you can use your own. Consult the official elasticsearch documentation if you don't want to use the bundled JVM.

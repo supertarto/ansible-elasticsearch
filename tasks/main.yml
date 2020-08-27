@@ -89,6 +89,3 @@
     name: elasticsearch
     state: started
     enabled: true
-  when: elasticsearch_start_service
-  register: elasticsearch_started
-  notify: Wait for elasticsearch to startup

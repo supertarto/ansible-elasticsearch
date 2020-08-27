@@ -5,7 +5,7 @@ services: docker
 env:
   global:
     - ROLE_NAME: elasticsearch
-  matrix:
+  jobs:
     - MOLECULE_DISTRIB: debian10:latest
 
 before_install:

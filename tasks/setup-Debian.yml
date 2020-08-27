@@ -23,9 +23,7 @@
     state: present
     allow_unauthenticated: "{{ 'no' if elasticsearch_apt_key else 'yes' }}"
     cache_valid_time: 86400
-  register: elasticsearch_debian_install_from_repo
-  notify:
-    - Restart elasticsearch
+  notify: Restart elasticsearch
   environment:
     ES_PATH_CONF: "{{ elasticsearch_conf_dir }}"
 
