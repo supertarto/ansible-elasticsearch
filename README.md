@@ -1,5 +1,5 @@
 # Absible Elasticsearch
-[![Build Status](https://travis-ci.org/supertarto/ansible-elasticsearch.svg?branch=master)](https://travis-ci.org/supertarto/ansible-elasticsearch)
+[![Build Status](https://travis-ci.com/supertarto/ansible-elasticsearch.svg?branch=master)](https://travis-ci.com/supertarto/ansible-elasticsearch)
 
 Install and configure Elasticsearch with java.
 This role is meant for my small need. It's inspired in part by the official role. If you need a more complete one, you can find it here:
